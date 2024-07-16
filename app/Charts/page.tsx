@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -27,7 +27,7 @@ const BookingChart = () => {
     datasets: [
       {
         label: 'Bookings',
-        data: [60, 40, 70, 50, 80, 30, 60, 40, 70, 90],
+        data: [60, 40, 70, 52, 80, 30, 60, 40, 70, 90],
         borderColor: '#3b82f6',
         backgroundColor: 'rgba(59, 130, 246, 0.1)',
         pointBackgroundColor: '#8b5cf6',
@@ -36,8 +36,8 @@ const BookingChart = () => {
         pointHoverBorderColor: '#8b5cf6',
         fill: true,
         tension: 0.4,
-        pointRadius: (ctx : any) => (ctx.raw > 50 ? 5 : 0),  
-        pointHoverRadius: (ctx : any) => (ctx.raw > 50 ? 7 : 0), 
+        pointRadius: (ctx: any) => (ctx.raw > 50 ? 5 : 0),
+        pointHoverRadius: (ctx: any) => (ctx.raw > 50 ? 7 : 0),
       },
     ],
   };
@@ -86,16 +86,20 @@ const BookingChart = () => {
         },
         ticks: {
           maxRotation: 0,
+          minRotation: 0,
+          autoSkip: false,
+          font: {
+            size: 9,
+          },
         },
       },
     },
   };
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative" style={{ width: '100%', height: '500px' }}>
       <Line data={data} options={options} />
     </div>
-
   );
 };
 

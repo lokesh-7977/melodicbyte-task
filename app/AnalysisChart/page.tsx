@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Chartplaceholder from "../Charts/page";
+import Link from "next/link";
 
 const AnalysisChart = ({ title }: any) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -12,11 +13,11 @@ const AnalysisChart = ({ title }: any) => {
 
   return (
     <div className="p-4 border-[1px] rounded-[23px] border-[#D6D9FF] w-full max-w-lg mx-auto">
-      <div className="flex gap-4 mb-2 w-full justify-center items-center">
-        <h3 className="text-lg text-[#08138C] font-Montserrat font-bold text-[28px]">
+      <div className="flex flex-col md:flex-row gap-4 mb-2 w-full justify-center items-center">
+        <h3 className="text-lg text-[#08138C] font-Montserrat font-bold text-[20px] md:text-[28px]">
           {title}
         </h3>
-        <div className="border-[1px] text-center pl-2 p-1 border-[#08138C] rounded-full flex items-center w-[121px] h-[39px]">
+        <div className="border-[1px] text-center pl-2 p-1 border-[#08138C] rounded-full flex items-center w-full md:w-[121px] h-[39px]">
           This Month
           <div className="relative">
             <button
@@ -40,18 +41,12 @@ const AnalysisChart = ({ title }: any) => {
             </button>
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20">
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                >
+                <Link href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
                   Previous Month
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                >
+                </Link>
+                <Link href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
                   Next Month
-                </a>
+                </Link>
               </div>
             )}
           </div>
